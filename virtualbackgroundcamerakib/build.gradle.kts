@@ -84,7 +84,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "virtualbackgroundcamerakib"
-                version = "1.0.7"
+                version = "1.0.8"
             }
         }
     }
