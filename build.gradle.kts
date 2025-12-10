@@ -2,8 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.dagger.hilt.android")
-    kotlin("kapt") // ✅ This enables kapt
+//    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.hilt.android) // ✅ Use alias
+    alias(libs.plugins.kotlin.kapt)
+//    kotlin("kapt") // ✅ This enables kapt
 }
 
 android {

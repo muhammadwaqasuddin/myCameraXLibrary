@@ -7,6 +7,7 @@ plugins {
     id("maven-publish") // Add this
 }
 
+
 android {
     namespace = "com.example.virtualbackgroundcamerakib"
     compileSdk = 36
