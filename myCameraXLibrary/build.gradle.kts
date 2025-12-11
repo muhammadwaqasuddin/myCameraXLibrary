@@ -85,7 +85,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.0.9"
+                version = "1.1.0"
             }
         }
     }
