@@ -7,6 +7,7 @@ plugins {
     // ❌ Remove this line - compose plugin doesn't exist for Kotlin 1.9.x
     // id("org.jetbrains.kotlin.plugin.compose")
     id("maven-publish")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -31,9 +32,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"  // ✅ This is what enables Compose for Kotlin 1.9.x
-    }
 
     publishing {
         singleVariant("release") {
@@ -45,8 +43,8 @@ android {
 
 dependencies {
     // Core AndroidX
-    implementation("androidx.core:core-ktx:1.15.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
 
     // Compose
     implementation(platform("androidx.compose:compose-bom:2024.11.00"))
@@ -56,25 +54,27 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.3")
 
     // Hilt - Use 'api' so consumers get the dependency
-    api("com.google.dagger:hilt-android:2.51.1")  // ✅ Match version with project
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-    api("androidx.hilt:hilt-navigation-compose:1.2.0")
+    api("com.google.dagger:hilt-android:2.57.2")  // ✅ Match version with project
+    kapt("com.google.dagger:hilt-android-compiler:2.57.2")
+    api("androidx.hilt:hilt-navigation-compose:1.3.0")
 
     // CameraX
-    api("androidx.camera:camera-core:1.5.0")
-    api("androidx.camera:camera-camera2:1.5.0")
-    api("androidx.camera:camera-lifecycle:1.5.0")
-    api("androidx.camera:camera-view:1.5.0")
+    api("androidx.camera:camera-core:1.5.2")
+    api("androidx.camera:camera-camera2:1.5.2")
+    api("androidx.camera:camera-lifecycle:1.5.2")
+    api("androidx.camera:camera-view:1.5.2")
 
     // ML Kit
     api("com.google.mlkit:segmentation-selfie:16.0.0-beta6")
 
     // Timber
-    api("com.jakewharton.timber:timber:4.7.1")
+    api("com.jakewharton.timber:timber:5.0.1")
 
     // ExoPlayer
-    api("androidx.media3:media3-exoplayer:1.3.0")
-    api("androidx.media3:media3-ui:1.3.0")
+    api("androidx.media3:media3-exoplayer:1.8.0")
+    api("androidx.media3:media3-ui:1.8.0")
+    api("androidx.compose.material:material-icons-extended")
+
 }
 
 // Maven publishing for JitPack
@@ -85,7 +85,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.1.0"
+                version = "1.1.1"
             }
         }
     }

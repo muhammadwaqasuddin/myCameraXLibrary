@@ -30,10 +30,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"  // ✅ This is what enables Compose for Kotlin 1.9.x
-    }
-
     publishing {
         singleVariant("release") {
             withSourcesJar()
