@@ -33,8 +33,9 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
+        kotlinCompilerExtensionVersion = "2.0.21"
     }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
@@ -45,20 +46,20 @@ android {
 
 dependencies {
     // Core AndroidX
-    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.core:core-ktx:2.10.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
 
     // Compose
-    implementation(platform("androidx.compose:compose-bom:2024.11.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.activity.compose)
 
     // Hilt - Use 'api' so consumers get the dependency
     api("com.google.dagger:hilt-android:2.57.2")  // ✅ Match version with project
     kapt("com.google.dagger:hilt-android-compiler:2.57.2")
-    api("androidx.hilt:hilt-navigation-compose:1.3.0")
+    api("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // CameraX
     api("androidx.camera:camera-core:1.5.2")
@@ -87,7 +88,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.1.2"
+                version = "1.1.3"
             }
         }
     }
