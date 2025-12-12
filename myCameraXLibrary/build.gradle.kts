@@ -49,9 +49,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     // Compose
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-tooling-preview")
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.activity.compose)
 
@@ -75,7 +72,6 @@ dependencies {
     // ExoPlayer
     api("androidx.media3:media3-exoplayer:1.8.0")
     api("androidx.media3:media3-ui:1.8.0")
-    api("androidx.compose.material:material-icons-extended")
 
 }
 
@@ -87,7 +83,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.1.4"
+                version = "1.1.5"
             }
         }
     }
