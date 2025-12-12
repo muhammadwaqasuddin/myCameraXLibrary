@@ -1,9 +1,9 @@
 
 plugins {
     id("com.android.library")
-    kotlin("android")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.android)
     // ❌ Remove this line - compose plugin doesn't exist for Kotlin 1.9.x
     // id("org.jetbrains.kotlin.plugin.compose")
     id("maven-publish")
@@ -46,9 +46,8 @@ android {
 
 dependencies {
     // Core AndroidX
-    implementation("androidx.core:core-ktx:2.10.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
-
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     // Compose
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
@@ -88,7 +87,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.1.3"
+                version = "1.1.4"
             }
         }
     }
