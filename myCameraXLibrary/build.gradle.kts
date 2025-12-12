@@ -45,6 +45,8 @@ android {
 }
 
 dependencies {
+    val composeBom = platform("androidx.compose:compose-bom:2024.09.00")
+    implementation(composeBom)
     // Core AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -73,6 +75,27 @@ dependencies {
     api("androidx.media3:media3-exoplayer:1.8.0")
     api("androidx.media3:media3-ui:1.8.0")
 
+    // Compose Core
+    api("androidx.compose.ui:ui:1.7.0")
+    api("androidx.compose.ui:ui-graphics:1.7.0")
+    api("androidx.compose.ui:ui-tooling-preview:1.7.0")
+
+// Compose Foundation
+    api("androidx.compose.foundation:foundation:1.7.0")
+    api("androidx.compose.foundation:foundation-layout:1.7.0")
+
+// Compose Material & Material3
+    api("androidx.compose.material:material:1.7.0")
+    api("androidx.compose.material:material-icons-extended:1.7.0")
+    api("androidx.compose.material3:material3:1.3.0")
+
+// Compose Lazy lists
+    api("androidx.compose.foundation:foundation:1.7.0")
+
+// Activity Compose
+    api("androidx.activity:activity-compose:1.9.3")
+
+
 }
 
 // Maven publishing for JitPack
@@ -83,7 +106,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.muhammadwaqasuddin"
                 artifactId = "mycameraxlibrary"
-                version = "1.1.5"
+                version = "1.1.6"
             }
         }
     }
